@@ -7,7 +7,9 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "(cd ios && RCT_NEW_ARCH_ENABLED=1 NO_FLIPPER=1 USE_FRAMEWORKS=static pod install --repo-update)",
+    "clean-deps": "(cd ios && pod cache clean --all) && rm -rf ${HOME}/Library/Developer/Xcode/DerivedData/* && git clean -dfx && npm i"
   },
   "dependencies": {
     "react": "18.2.0",
